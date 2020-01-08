@@ -1,3 +1,6 @@
+An arts &amp; crafts e-commerce webpage created with JavaScript, React w/Redux, and SASS.
+___________________________________________________________________________________________________
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

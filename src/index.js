@@ -7,12 +7,12 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
 
-ReactDOM.render(
+ReactDOM.render (
     // BrowserRouter is a component that is 
     // wrapped around an entire App and gives it 
     // routing functionality.
     <BrowserRouter>
-        <App />, 
-        document.getElementById('root')
-    </BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('root')
 );

@@ -21,11 +21,15 @@ function App() {
       we do not render anything but that route. */}
       <Switch>
         {/* // Use react-router-dom's Route Component
-        // to display the homepage */}
+        // to display pages */}
+
+        {/* Home Page */}
         <Route exact={true} path='/' component={HomePage} />
+
+        {/* Dolls Page */}
+        <Route exact={true} path='/dolls' component={DollsPage} />
       </Switch>
     </div>
-
   );
 }
 

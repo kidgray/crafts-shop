@@ -10,9 +10,18 @@ import { HomePage } from './pages/homepage/homepage.component';
 /* Import ShopPage */
 import { ShopPage } from './pages/shop/shop.component';
 
+/* Import Header */
+import { Header } from './components/header/header.component';
+
 function App() {
   return (
     <div>
+
+      {/* By placing the Header Component outside of the Switch/Route
+      Component tree, the site's Header will always be rendered no matter
+      which specific page is rendered by React. */}
+      <Header />
+
       {/* Switch component from react-router-dom package ensures
       that as soon as a route inside of it finds a matching path,
       we do not render anything but that route. */}

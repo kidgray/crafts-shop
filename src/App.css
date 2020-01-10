@@ -2,3 +2,15 @@ body {
     font-family: 'Abel', sans-serif;
     padding: 1.3rem 4rem;
 }
+
+/* React-router-dom's Link Component is actually rendered
+as an HTML native anchor tag (i.e. an <a> tag). So, to style
+the Link component, I have to style the anchor tags. */
+
+a {
+    /* Remove Hyperlink underline from Links */
+    text-decoration: none;
+
+    /* Text color of links should be black */
+    color: black;
+}

@@ -7,11 +7,8 @@ import { Switch, Route } from 'react-router-dom';
 /* Import HomePage */
 import { HomePage } from './pages/homepage/homepage.component';
 
-const DollsPage = () => (
-  <div>
-    <h1>DOLLS PAGE</h1>
-  </div>
-)
+/* Import ShopPage */
+import { ShopPage } from './pages/shop/shop.component';
 
 function App() {
   return (
@@ -26,8 +23,8 @@ function App() {
         {/* Home Page */}
         <Route exact={true} path='/' component={HomePage} />
 
-        {/* Dolls Page */}
-        <Route exact={true} path='/dolls' component={DollsPage} />
+        {/* Shop Page */}
+        <Route exact={true} path='/shop' component={ShopPage} />
       </Switch>
     </div>
   );

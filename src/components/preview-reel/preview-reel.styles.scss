@@ -1,0 +1,16 @@
+.preview-reel {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  
+    .title {
+      font-size: 3rem;
+      margin-bottom: 25px;
+    }
+  
+    .reel {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  

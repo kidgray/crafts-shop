@@ -1,5 +1,8 @@
 import React from 'react';
 
+/* Import CategoryItem Component so we can display the items */
+import { CategoryItem } from '../category-item/category-item.component';
+
 /* Import preview reel SASS style sheet */
 import './preview-reel.styles.scss';
 
@@ -24,8 +27,9 @@ export const PreviewReel = ({ category, items }) => (
                 This is because every time a PreviewReel component is re-rendered or mounted, this
                 whole chain of functions has to run again (this is a particularity of React)
                 */
-                items.filter((current, index) => (index < 5)).map((current) => (
-                    <div key={ current.id }>{ current.name }</div>
+                items.filter((current, index) => (index < 5))
+                .map(({ id, ...itemProps}) => (
+                    <CategoryItem key={ id } {...itemProps} />
                 ))
             }
         </div>

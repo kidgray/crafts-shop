@@ -10,6 +10,9 @@ import { HomePage } from './pages/homepage/homepage.component';
 /* Import ShopPage */
 import { ShopPage } from './pages/shop/shop.component';
 
+/* Import Sign In/Sign Up Page */
+import { SignInAndSignUpPage } from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+
 /* Import Header */
 import { Header } from './components/header/header.component';
 
@@ -34,6 +37,9 @@ function App() {
 
         {/* Shop Page */}
         <Route exact={true} path='/shop' component={ShopPage} />
+
+        {/* Sign In/Sign Up Page */}
+        <Route exact={true} path='/signin' component={SignInAndSignUpPage} />
       </Switch>
     </div>
   );

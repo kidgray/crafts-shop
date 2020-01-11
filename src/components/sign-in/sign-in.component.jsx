@@ -6,6 +6,9 @@ import './sign-in.styles.scss';
 /* Import FormInput Component for the Sign-in form */
 import { FormInput } from '../form-input/form-input.component';
 
+/* Import FormButton Component for the Submit button */
+import { FormButton } from '../form-button/form-button.component';
+
 /* The Login page has to store state data (what the user types in),
 so this needs to be a Class component */
 
@@ -61,7 +64,9 @@ export class SignIn extends React.Component {
                     <FormInput name='password' type='password' label='password' value={this.state.password} handleChange={this.handleChange} required={true} />
 
                     {/* Submit button */}
-                    <input type='submit' value='Submit Form'/>
+                    <FormButton type='submit'>
+                        Login
+                    </FormButton>
                 </form>
             </div>
         );

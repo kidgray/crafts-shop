@@ -28,6 +28,9 @@ export const Header = () => (
             <Link className='bar-item' to=''>
                 CONTACT
             </Link>
+            <Link className='bar-item' to='/signin'>
+                LOGIN
+            </Link>
         </div>
     </div>
 );

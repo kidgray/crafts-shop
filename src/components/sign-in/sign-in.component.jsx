@@ -3,6 +3,9 @@ import React from 'react';
 /* Import SASS Style Sheet */
 import './sign-in.styles.scss';
 
+/* Import FormInput Component for the Sign-in form */
+import { FormInput } from '../form-input/form-input.component';
+
 /* The Login page has to store state data (what the user types in),
 so this needs to be a Class component */
 
@@ -46,18 +49,16 @@ export class SignIn extends React.Component {
         return (
             <div className='sign-in'>
                 {/* The text above the sign-in form */}
-                <h1>LOG IN</h1>
-                <span>Log in with your email and password.</span>
+                <h1 className='login-header'>LOG IN</h1>
+                <span className='login-msg'>Log in with your email and password.</span>
 
                 {/* The actual sign-in form itself */}
                 <form onSubmit={ this.handleSubmit }>
                     {/* E-mail input. Don't forget type='email' so that user actually has to enter an e-mail address */}
-                    <input name='email' type='email' value={this.state.email} onChange={this.handleChange} required={true} />
-                    <label>E-mail</label>
+                    <FormInput name='email' type='email' label='email' value={this.state.email} handleChange={this.handleChange} required={true} />
 
                     {/* Password input. type='password' shows user's input as asterisks (obscures their input) */}
-                    <input name='password' type='password' value={this.state.password} onChange={this.handleChange} required={true} />
-                    <label>Password</label>
+                    <FormInput name='password' type='password' label='password' value={this.state.password} handleChange={this.handleChange} required={true} />
 
                     {/* Submit button */}
                     <input type='submit' value='Submit Form'/>

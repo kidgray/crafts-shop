@@ -80,9 +80,9 @@ export class SignIn extends React.Component {
                     </FormButton>
 
                     {/* Submit button for Facebook Authentication Login*/}
-                    <FormButton onClick={signInWithFacebook}>
+                    {/* <FormButton onClick={signInWithFacebook}>
                         Login with Facebook
-                    </FormButton>
+                    </FormButton> */}
                 </form>
             </div>
         );

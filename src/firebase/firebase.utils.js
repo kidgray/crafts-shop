@@ -49,11 +49,11 @@ export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 remember how to do this, just like the Google one. --- */
 
 // This gives access to the FacebookAuthProvider class from the auth library
-const facebookProvider = new firebase.auth.FacebookAuthProvider();
+// const facebookProvider = new firebase.auth.FacebookAuthProvider();
 
 // This triggers the Facebook Sign-in Popup when you use this Facebook
 // Authentication provider. 
-facebookProvider.setCustomParameters({'display': 'popup'});
+// facebookProvider.setCustomParameters({'display': 'popup'});
 
 // signInWithPopup() method for the Facebook Authentication utility
-export const signInWithFacebook = () => auth.signInWithPopup(facebookProvider);
+// export const signInWithFacebook = () => auth.signInWithPopup(facebookProvider);

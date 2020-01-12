@@ -9,6 +9,12 @@ import { FormInput } from '../form-input/form-input.component';
 /* Import FormButton Component for the Submit button */
 import { FormButton } from '../form-button/form-button.component';
 
+/* Import Firebase Google Authentication utility */
+import { signInWithGoogle } from '../../firebase/firebase.utils';
+
+/* Import Firebase Facebook Authentication utility */
+import { signInWithFacebook } from '../../firebase/firebase.utils';
+
 /* The Login page has to store state data (what the user types in),
 so this needs to be a Class component */
 
@@ -63,9 +69,19 @@ export class SignIn extends React.Component {
                     {/* Password input. type='password' shows user's input as asterisks (obscures their input) */}
                     <FormInput name='password' type='password' label='password' value={this.state.password} handleChange={this.handleChange} required={true} />
 
-                    {/* Submit button */}
+                    {/* Submit button for Website Login*/}
                     <FormButton type='submit'>
                         Login
+                    </FormButton>
+
+                    {/* Submit button for Google Authentication Login*/}
+                    <FormButton onClick={signInWithGoogle}>
+                        Login with Google
+                    </FormButton>
+
+                    {/* Submit button for Facebook Authentication Login*/}
+                    <FormButton onClick={signInWithFacebook}>
+                        Login with Facebook
                     </FormButton>
                 </form>
             </div>

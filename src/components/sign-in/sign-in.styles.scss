@@ -1,5 +1,5 @@
 .sign-in {
-    width: 25vw;
+    width: 20vw;
     display: flex;
     flex-direction: column;
 }
@@ -12,4 +12,9 @@
 .login-msg {
     font-size: 1rem;
     font-weight: bold;
+}
+
+.sign-in-buttons {
+    display: flex;
+    justify-content: space-between;
 }

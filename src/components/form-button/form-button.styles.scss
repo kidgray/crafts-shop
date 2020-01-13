@@ -19,5 +19,24 @@
         color: black;
         border: 1px solid black;
     }
+
+    /* Don't forget to add the Ampersand when combining selectors in SASS.
+    This is the same as saying 
+
+        .form-button.third-party-sign-in
+
+    in regular CSS. If you don't add the Ampersand, .third-party-sign-in
+    styles would be applied to a CHILD ELEMENT of .form-button that had
+    the class .third-party-sign-in
+    */
+    &.third-party-sign-in {
+        background-color: #4285f4;
+        color: white;
+
+        &:hover {
+            background-color: #357ae8;
+            border: none;
+        }
+    }
 }
   

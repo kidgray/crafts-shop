@@ -1,3 +1,10 @@
+/* Margins, padding, and borders should not affect the overall
+size of any elements */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Abel', sans-serif;
     padding: 1.3rem 4rem;

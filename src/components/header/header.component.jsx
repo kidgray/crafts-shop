@@ -4,6 +4,9 @@ import React from 'react';
 so I need this component */
 import { Link } from 'react-router-dom';
 
+/* Import Auth library from Firebase Utilities */
+import { auth } from '../../firebase/firebase.utils';
+
 /* Import SASS Style Sheet */
 import './header.styles.scss';
 
@@ -11,7 +14,7 @@ import './header.styles.scss';
 import {ReactComponent as Logo} from '../../img/rose-logo-svg.svg';
 
 /* Functional Component for the Header */
-export const Header = () => (
+export const Header = ({ currentUser }) => (
     <div className='header'>
         {/* Logo links to home page */}
         <Link className='logo-link' to='/'>
@@ -28,9 +31,19 @@ export const Header = () => (
             <Link className='bar-item' to=''>
                 CONTACT
             </Link>
-            <Link className='bar-item' to='/signin'>
-                LOGIN
-            </Link>
+
+            {/* If there's no user logged in, render a Login button
+            on the menu bar; if there is a user logged in,
+            render a logout button */}
+            {
+                currentUser ? 
+                <div className='bar-item' onClick={auth.signOut()}>LOG OUT</div>
+                :
+                <Link className='bar-item' to='/signin'>
+                    LOG IN
+                </Link>
+            }
+
         </div>
     </div>
 );

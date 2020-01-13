@@ -69,20 +69,25 @@ export class SignIn extends React.Component {
                     {/* Password input. type='password' shows user's input as asterisks (obscures their input) */}
                     <FormInput name='password' type='password' label='password' value={this.state.password} handleChange={this.handleChange} required={true} />
 
-                    {/* Submit button for Website Login*/}
-                    <FormButton type='submit'>
-                        Login
-                    </FormButton>
 
-                    {/* Submit button for Google Authentication Login*/}
-                    <FormButton onClick={signInWithGoogle}>
-                        Login with Google
-                    </FormButton>
+                    {/* Put all the Sign-in buttons inside of this div. This applies the styling that keeps
+                    them neat and orderly.  */}
+                    <div className='sign-in-buttons'>
+                        {/* Submit button for Website Login*/}
+                        <FormButton type='submit'>
+                            Login
+                        </FormButton>
 
-                    {/* Submit button for Facebook Authentication Login*/}
-                    {/* <FormButton onClick={signInWithFacebook}>
-                        Login with Facebook
-                    </FormButton> */}
+                        {/* Submit button for Google Authentication Login*/}
+                        <FormButton onClick={signInWithGoogle} isThirdPartySignIn={true}>
+                            Login with Google
+                        </FormButton>
+
+                        {/* Submit button for Facebook Authentication Login*/}
+                        {/* <FormButton onClick={signInWithFacebook} isThirdPartySignIn={true}>
+                            Login with Facebook
+                        </FormButton> */}
+                    </div>
                 </form>
             </div>
         );

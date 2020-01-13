@@ -19,6 +19,72 @@ const firebaseConfig = {
     measurementId: "G-LNETRHHDQX"
 };
 
+/* Function that allows for the storage of user info obtained
+from Google/Facebook/etc auths in the Firebase database
+
+Note that because this is an API (Firebase's firestore) request,
+it's an asynchronous function.
+
+userAuth is the user's authentication details (username, etc)
+data is any additional data that needs to be passed in */
+export const createUserProfileDoc = async(userAuth, data) => {
+    // Only save user data to the database when a user
+    // signs IN with a third-party app; if userAuth is null, 
+    // that means a sign out happened
+    if (!userAuth) {
+        // If userAuth was null (recall null is a falsy value in JS)
+        // just return; don't need to do anything.
+        return;
+    }
+
+    // IF userAuth WAS NOT NULL
+
+    // Get a documentRef object corresponding to the user's uid
+    const userRef = firestore.doc(`users/${userAuth.uid}`);
+
+    // Get the documentSnapshot corresponding to the documentRef
+    // Recall that Firestore's CRUD methods are asynchronous, so
+    // need to use the await keyword to wait for the response
+    // from the Firestore DB
+    const userSnapshot = await userRef.get();
+
+    // If user's info isn't already in the database
+    if (!userSnapshot.exists) {
+        // Destructure the user's email and name
+        // from userAuth object
+        const { displayName, email } = userAuth;
+
+        // Date that this document was created
+        const creationDate = new Date();
+
+        // Need to make an async request to the
+        // Firestore DB to store this data
+        try {
+            // set() is Firestore's Create method
+            await userRef.set({
+
+                // User's name, email,
+                // and account creation date
+                // fields for the document
+                displayName: displayName,
+                email: email,
+                creationDate: creationDate,
+
+                // Use the spread operator to pass
+                // in all additional data as properties
+                // as well
+                ...data
+            });
+        }
+        catch (error) {
+            console.log(`Encountered an error while trying to create an user: ${error.message}`);
+        }
+    }
+
+    // Return userRef object, just in case something else needs to be done with it
+    return userRef;
+}
+
 /* Initialize Firebase */
 firebase.initializeApp(firebaseConfig);
 

@@ -17,7 +17,7 @@ import { SignInAndSignUpPage } from './pages/sign-in-and-sign-up/sign-in-and-sig
 import { Header } from './components/header/header.component';
 
 /* Import Authentication Utility from Firebase utilities */
-import { auth } from './firebase/firebase.utils';
+import { auth, createUserProfileDoc } from './firebase/firebase.utils';
 
 /* App is now a Class Component, since I need to store the user info
 provided to Google/Facebook Authentication Utilities in the App's state
@@ -42,7 +42,9 @@ class App extends React.Component {
   given Firebase authenticator. 
   */
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => { this.setState({currentUser: user}) });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => { 
+      createUserProfileDoc(user);
+    });
   }
 
   /* Whenever the App Component unmounts, close the Authentication Open Subscription */

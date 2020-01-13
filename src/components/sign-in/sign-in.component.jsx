@@ -62,7 +62,7 @@ export class SignIn extends React.Component {
                 <span className='login-msg'>Log in with your email and password.</span>
 
                 {/* The actual sign-in form itself */}
-                <form onSubmit={ this.handleSubmit }>
+                <form onSubmit={this.handleSubmit}>
                     {/* E-mail input. Don't forget type='email' so that user actually has to enter an e-mail address */}
                     <FormInput name='email' type='email' label='email' value={this.state.email} handleChange={this.handleChange} required={true} />
 

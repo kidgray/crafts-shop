@@ -42,8 +42,35 @@ class App extends React.Component {
   given Firebase authenticator. 
   */
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => { 
-      createUserProfileDoc(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => { 
+      // If userAuth contains data
+      if (userAuth) {
+        // Get documentReference object
+        const userRef = await createUserProfileDoc(userAuth);
+
+        // Get the snapshot object corresponding to the docReference
+        // above. Note that this is similar to calling onAuthStateChanged(). See firebase docs
+        userRef.onSnapshot(userSnapshot => {
+          // Save user's information in the App's state so it can
+          // be used
+          this.setState({
+            currentUser: {
+              // ID of the current user
+              id: userSnapshot.id,
+
+              // Spread in the other properties of the user document
+              ...userSnapshot.data()
+            }
+          });
+        });
+      }
+
+      // If userAuth is null
+      else {
+        // Just set currentUser to userAuth (same as setting it to null
+        // in this case)
+        this.setState({ currentUser: userAuth });
+      }
     });
   }
 

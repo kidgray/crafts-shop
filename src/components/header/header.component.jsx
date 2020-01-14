@@ -37,12 +37,24 @@ export const Header = ({ currentUser }) => (
             render a logout button */}
             {
                 currentUser ? 
-                <div className='bar-item' onClick={auth.signOut()}>LOG OUT</div>
+                <div className='bar-item' onClick={auth.signOut}>LOG OUT</div>
                 :
                 <Link className='bar-item' to='/signin'>
                     LOG IN
                 </Link>
             }
+
+            {/* If there's no user logged in, render a Sign Up button
+            on the menu bar; if there is a user logged in,
+            don't render anything else */}
+            {/* {
+                currentUser ? 
+                null
+                :
+                <Link className='bar-item' to='register'>
+                    SIGN UP
+                </Link>
+            } */}
 
         </div>
     </div>

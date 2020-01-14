@@ -2,19 +2,19 @@
     width: 20vw;
     display: flex;
     flex-direction: column;
-}
 
-.login-header {
-    font-size: 3.1rem;
-    margin: 4rem 0 0 0;
-}
+    .login-header {
+        font-size: 3.1rem;
+        margin: 4rem 0 0 0;
+    }
 
-.login-msg {
-    font-size: 1rem;
-    font-weight: bold;
-}
+    .login-msg {
+        font-size: 1rem;
+        font-weight: bold;
+    }
 
-.sign-in-buttons {
-    display: flex;
-    justify-content: space-between;
+    .sign-in-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
 }

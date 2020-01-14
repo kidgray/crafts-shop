@@ -13,6 +13,9 @@ import { ShopPage } from './pages/shop/shop.component';
 /* Import Sign In/Sign Up Page */
 import { SignInAndSignUpPage } from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 
+/* Import Registration Page */
+import { Registration } from './pages/registration/registration.component';
+
 /* Import Header */
 import { Header } from './components/header/header.component';
 
@@ -62,6 +65,8 @@ class App extends React.Component {
               ...userSnapshot.data()
             }
           });
+
+          console.log(this.state);
         });
       }
 
@@ -103,6 +108,14 @@ class App extends React.Component {
   
           {/* Sign In/Sign Up Page */}
           <Route exact={true} path='/signin' component={SignInAndSignUpPage} />
+
+          {/* Registration Page */}
+          {/* 
+          I'm on the fence about whether to use this. Maybe it's best to just 
+          put the Sign-up form on the same page as the Login form after all? 
+
+          <Route exact={true} path='/register' component={Registration} /> 
+          */}
         </Switch>
       </div>
     );

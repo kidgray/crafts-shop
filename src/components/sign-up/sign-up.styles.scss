@@ -3,8 +3,19 @@
     flex-direction: column;
     width: 23.75rem;
 
-    .title {
-        margin: 0.625rem 0;
+    /* The values for the following 2 classes
+    are copied from the SignIn Component's stylesheet.
+    This is just so that the two forms "match" in terms
+    of presentation */
+    .sign-up-header {
+        // margin: 0.625rem 0;
+        font-size: 3.1rem;
+        margin: 4rem 0 0 0;
+    }
+    
+    .sign-up-msg {
+        font-size: 1rem;
+        font-weight: bold;
     }
 }
   

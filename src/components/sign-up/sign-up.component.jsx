@@ -24,9 +24,6 @@ export class SignUp extends React.Component {
         this.state = {
             displayName: '',
             email: '',
-
-            /* User must enter password twice whilst signing up
-            to ensure their password is entered correctly */
             password: '',
             confirmPassword: ''
         };
@@ -52,8 +49,8 @@ export class SignUp extends React.Component {
         try {
             /* createUserWithEmailAndPassword() returns a userAuth
             object, but it is named 'user', so use that when destructuring
-            the return value. */
-            const { user } = auth.createUserWithEmailAndPassword(email, password);
+            the return value. This is an Asynchronous call, so use the await keyword*/
+            const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
             // Create the user profile on the database. This is also an asynchronous
             // call, so use await keyword
@@ -78,7 +75,7 @@ export class SignUp extends React.Component {
         const { name, value } = event.target;
 
         /* Same idea as SignIn Component. Refer to that file. */
-        this.setState({[name]: value});
+        this.setState({ [name]: value} );
     };
 
     render() {
@@ -87,8 +84,8 @@ export class SignUp extends React.Component {
 
         return(
             <div className='sign-up'>
-                <h2 className='title'>SIGN UP</h2>
-                <span>Enter an email and password to sign up.</span>
+                <h2 className='sign-up-header'>SIGN UP</h2>
+                <span className='sign-up-msg'>Enter an email and password to sign up.</span>
 
                 {/* The actual Sign Up form */}
                 <form className='sign-up-form' onSubmit={this.handleSubmit}>

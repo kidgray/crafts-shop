@@ -1,0 +1,14 @@
+.sign-in-and-sign-up {
+    display: flex;
+    justify-content: space-between;
+
+    // Lots of empty screen real estate with
+    // this setting... going to try a % of the
+    // viewport instead, see how it goes
+    // width: 53.125rem;
+    width: 50vw;
+
+    // Center the login and sign up forms on the screen,
+    // and give them a small top and bottom margin
+    margin: 1.875rem auto;
+}

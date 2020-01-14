@@ -65,8 +65,6 @@ class App extends React.Component {
               ...userSnapshot.data()
             }
           });
-
-          console.log(this.state);
         });
       }
 

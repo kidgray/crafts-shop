@@ -9,11 +9,8 @@ import { FormInput } from '../form-input/form-input.component';
 /* Import FormButton Component for the Submit button */
 import { FormButton } from '../form-button/form-button.component';
 
-/* Import Firebase Google Authentication utility */
-import { signInWithGoogle } from '../../firebase/firebase.utils';
-
-/* Import Firebase Facebook Authentication utility */
-import { signInWithFacebook } from '../../firebase/firebase.utils';
+/* Import Firebase authentication utilities */
+import { auth, signInWithGoogle, signInWithFacebook } from '../../firebase/firebase.utils';
 
 /* The Login page has to store state data (what the user types in),
 so this needs to be a Class component */
@@ -29,14 +26,28 @@ export class SignIn extends React.Component {
     }
 
     // Method for handling the user clicking the Submit button
-    // on the sign in form
-    handleSubmit = (event) => {
+    // on the sign in form. Since there will be an API call 
+    // (to Firebase), it is now an ASYNCHRONOUS function
+    handleSubmit = async (event) => {
 
         // Prevent the default form submission behavior from occurring
         event.preventDefault();
 
-        // Clear E-mail and Password fields
-        this.setState({email: '', password: ''});
+        /* Destructure email and password from state */
+        const { email, password } = this.state;
+
+        /* Try/catch block for asynchronous API call to Firebase */
+        try {
+            // signInWithEmailAndPassword() is the API call; this is
+            // asynchronous, so await it
+            await auth.signInWithEmailAndPassword(email, password);
+
+            // Clear E-mail and Password fields
+            this.setState({email: '', password: ''});
+        }
+        catch (error) {
+            console.error(`An error occurred while signing in: ${error}`)
+        }
     };
 
 

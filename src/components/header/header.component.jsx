@@ -37,7 +37,7 @@ export const Header = ({ currentUser }) => (
             render a logout button */}
             {
                 currentUser ? 
-                <div className='bar-item' onClick={auth.signOut}>LOG OUT</div>
+                <div className='bar-item' onClick={() => auth.signOut()}>LOG OUT</div>
                 :
                 <Link className='bar-item' to='/signin'>
                     LOG IN

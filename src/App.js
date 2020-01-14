@@ -111,8 +111,7 @@ class App extends React.Component {
 
           {/* Registration Page */}
           {/* 
-          I'm on the fence about whether to use this. Maybe it's best to just 
-          put the Sign-up form on the same page as the Login form after all? 
+          Decided not to use this after all.
 
           <Route exact={true} path='/register' component={Registration} /> 
           */}

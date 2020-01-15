@@ -13,8 +13,24 @@ import './header.styles.scss';
 /*This is React's special syntax for importing SVG logos as Components */
 import {ReactComponent as Logo} from '../../img/rose-logo-svg.svg';
 
+/* Import Connect function from react-redux library*/
+import { connect } from 'react-redux';
+
+/* mapStateToProps function takes the Root Reducer as an argument
+and returns an object whose property names will be the names of the
+properties we want to pass in to the component and the value will
+be those properties' corresponding values */
+const mapStateToProps = (state)=> ({
+    // This is basically getting the currentUser value
+    // from the userReducer, which is in the Root Reducer,
+    // and assigning its value to a property called currentUser,
+    // which is the same name as the corresponding property in
+    // the Reducer it came from (user reducer, in this case)
+    currentUser: state.user.currentUser
+})
+
 /* Functional Component for the Header */
-export const Header = ({ currentUser }) => (
+export const Header = connect(mapStateToProps)(({ currentUser }) => (
     <div className='header'>
         {/* Logo links to home page */}
         <Link className='logo-link' to='/'>
@@ -58,4 +74,6 @@ export const Header = ({ currentUser }) => (
 
         </div>
     </div>
-);
+));
+
+// export const ReduxHeader = connect(mapStateToProps)(Header);

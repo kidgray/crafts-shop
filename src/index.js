@@ -9,11 +9,14 @@ import { BrowserRouter } from 'react-router-dom';
 /* Import Provider from react-redux */
 import { Provider } from 'react-redux';
 
+/* Import the Redux Store */
+import { store } from './redux/store';
+
 ReactDOM.render (
     // BrowserRouter is a component that is 
     // wrapped around an entire App and gives it 
     // routing functionality.
-    <Provider>
+    <Provider store={store}>
         <BrowserRouter>
             <App />
         </BrowserRouter>

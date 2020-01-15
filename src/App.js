@@ -89,7 +89,7 @@ class App extends React.Component {
         {/* By placing the Header Component outside of the Switch/Route
         Component tree, the site's Header will always be rendered no matter
         which specific page is rendered by React. */}
-        <Header currentUser={this.state.currentUser} />
+        <Header  />
   
         {/* Switch component from react-router-dom package ensures
         that as soon as a route inside of it finds a matching path,

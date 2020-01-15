@@ -6,13 +6,17 @@ import App from './App';
 /* Import react-router-dom */
 import { BrowserRouter } from 'react-router-dom';
 
+/* Import Provider from react-redux */
+import { Provider } from 'react-redux';
 
 ReactDOM.render (
     // BrowserRouter is a component that is 
     // wrapped around an entire App and gives it 
     // routing functionality.
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
+    <Provider>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>,
     document.getElementById('root')
 );

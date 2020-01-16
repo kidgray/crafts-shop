@@ -12,6 +12,9 @@ import { connect } from 'react-redux';
 /* Import toggleCartHidden Action */
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 
+/* Import selectCartItemCounter selector */
+import { selectCartItemCounter } from '../../redux/cart/cart.selectors';
+
 const mapStateToProps = (state) => ({
     /* Use reduce() to add up the quantity of each item
     in the cart and return it as a single numerical value 

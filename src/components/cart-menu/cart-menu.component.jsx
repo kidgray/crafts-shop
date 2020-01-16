@@ -12,8 +12,11 @@ import { FormButton } from '../form-button/form-button.component';
 /* Import connect from react-redux library */
 import { connect } from 'react-redux';
 
+/* Import Cart Items Selector */
+import { selectCartItems } from '../../redux/cart/cart.selectors';
+
 const mapStateToProps = (state) => ({
-    cartItems: state.cart.cartItems
+    cartItems: selectCartItems(state)
 });
 
 /* Functional Component for the Cart */

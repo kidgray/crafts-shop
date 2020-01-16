@@ -27,9 +27,9 @@ export const PreviewReel = ({ category, items }) => (
                 This is because every time a PreviewReel component is re-rendered or mounted, this
                 whole chain of functions has to run again (this is a particularity of React)
                 */
-                items.filter((current, index) => (index < 5))
-                .map(({ id, ...itemProps}) => (
-                    <CategoryItem key={ id } {...itemProps} />
+                items.filter((item, index) => (index < 5))
+                .map((item) => (
+                    <CategoryItem key={ item.id } item={item} />
                 ))
             }
         </div>

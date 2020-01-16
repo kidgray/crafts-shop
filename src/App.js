@@ -22,19 +22,17 @@ import { Header } from './components/header/header.component';
 /* Import Authentication Utility from Firebase utilities */
 import { auth, createUserProfileDoc } from './firebase/firebase.utils';
 
+/* Import connect from react-redux library. This is so that the App can
+update Reducer values by firing Actions */
+import { connect } from 'react-redux';
+
+/* Import SET_CURRENT_USER Action */
+import { setCurrentUser } from './redux/user/user.actions';
+
 /* App is now a Class Component, since I need to store the user info
 provided to Google/Facebook Authentication Utilities in the App's state
 so that it can later be passed to components that need it */
 class App extends React.Component {
-  
-  constructor(){
-    super();
-
-    this.state = {
-      currentUser: null
-    }
-  }
-
   // Will be used to close the Open Subscription when the web app
   // is unmounted. Closing the subscription will avoid memory leaks
   unsubscribeFromAuth = null;
@@ -54,25 +52,24 @@ class App extends React.Component {
         // Get the snapshot object corresponding to the docReference
         // above. Note that this is similar to calling onAuthStateChanged(). See firebase docs
         userRef.onSnapshot(userSnapshot => {
-          // Save user's information in the App's state so it can
-          // be used
-          this.setState({
-            currentUser: {
-              // ID of the current user
-              id: userSnapshot.id,
+          // Save user's information in the Redux store so it can
+          // be used. Updated for Redux: use setCurrentUser() action
+          // to do this instead.
+          this.props.setCurrentUser({
+            // ID of the current user
+            id: userSnapshot.id,
 
-              // Spread in the other properties of the user document
-              ...userSnapshot.data()
-            }
+            // Spread in the other properties of the user document
+            ...userSnapshot.data()
           });
         });
       }
 
       // If userAuth is null
       else {
-        // Just set currentUser to userAuth (same as setting it to null
-        // in this case)
-        this.setState({ currentUser: userAuth });
+        // Updated for Redux implementation: call the setCurrentUser() Action Function
+        // and pass is userAuth
+        this.props.setCurrentUser(userAuth);
       }
     });
   }
@@ -89,7 +86,7 @@ class App extends React.Component {
         {/* By placing the Header Component outside of the Switch/Route
         Component tree, the site's Header will always be rendered no matter
         which specific page is rendered by React. */}
-        <Header  />
+        <Header />
   
         {/* Switch component from react-router-dom package ensures
         that as soon as a route inside of it finds a matching path,
@@ -119,4 +116,25 @@ class App extends React.Component {
   }
 }
 
-export default App;
+/* mapDispatchToProps is the second argument to connect() */
+const mapDispatchToProps = (dispatch) => ({
+
+  /* NOTE TO SELF: The dispatch() function takes an Action object
+  that will be dispatched to every Reducer. 
+
+  setCurrentUser() is an Action Constructor Function that takes a user
+  and returns an Action object that sets the user you passed in as
+  the current user. */
+  setCurrentUser: (user) => dispatch(setCurrentUser(user))
+});
+
+/* connect() has two arguments:
+
+  mapStateToProps
+  mapDispatchToProps
+
+It's possible to pass in null for mapStateToProps if the Component doesn't
+need the State props anymore at the time of calling connect(). This is the
+case here. */
+
+export default connect(null, mapDispatchToProps)(App);

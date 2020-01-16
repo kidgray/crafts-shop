@@ -3,6 +3,9 @@ import React from 'react';
 /* Import SASS Style sheet */
 import './category-item.styles.scss';
 
+/* Import Form Button Component */
+import { FormButton } from '../form-button/form-button.component';
+
 /* No state data or lifecycle methods needed,
 so this is a Functional Component */
 
@@ -26,5 +29,8 @@ export const CategoryItem = ({ id, name, imageUrl, price }) => (
             <span className='item-name'>{ name }</span>
             <span className='item-price'>{ price }</span>
         </div>
+
+        {/* Add to Cart Button */}
+        <FormButton invertedColors={true}>ADD TO CART</FormButton>
     </div>
 );

@@ -34,7 +34,7 @@ const mapStateToProps = (state)=> ({
     // the Reducer it came from (user reducer, in this case)
     currentUser: state.user.currentUser,
     hidden: state.cart.hidden
-})
+});
 
 /* Functional Component for the Header */
 export const Header = connect(mapStateToProps)(({ currentUser, hidden }) => (

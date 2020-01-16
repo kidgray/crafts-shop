@@ -1,8 +1,9 @@
 .category-item {
     width: 22%;
+    height: 21.875rem;
     display: flex;
     flex-direction: column;
-    height: 350px;
+    position: relative;
     align-items: center;
   
     .image {
@@ -23,11 +24,33 @@
 
         .item-name {
             width: 90%;
-            margin-bottom: 15px;
+            margin-bottom: 0.9375rem;
         }
   
         .item-price {
             width: 10%;
+        }
+    }
+
+    /* Extra Styling for the Add to Cart Buttons */
+    .form-button {
+        position: absolute;
+        top: 15.9375rem;
+        width: 65%;
+
+        /* Add to Cart button should only be visible
+        when hovering over an item */
+        display: none;
+    }
+
+    &:hover {
+        .form-button {
+            opacity: 0.85;
+            display: flex;
+        }
+
+        .image {
+            opacity: 0.85;
         }
     }
 }

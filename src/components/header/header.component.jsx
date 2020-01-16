@@ -7,6 +7,12 @@ import { Link } from 'react-router-dom';
 /* Import Auth library from Firebase Utilities */
 import { auth } from '../../firebase/firebase.utils';
 
+/* Import Cart Icon Component */
+import { CartIcon } from '../cart-icon/cart-icon.component';
+
+/* Import Cart Menu Component */
+import { CartMenu } from '../cart-menu/cart-menu.component';
+
 /* Import SASS Style Sheet */
 import './header.styles.scss';
 
@@ -26,11 +32,12 @@ const mapStateToProps = (state)=> ({
     // and assigning its value to a property called currentUser,
     // which is the same name as the corresponding property in
     // the Reducer it came from (user reducer, in this case)
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser,
+    hidden: state.cart.hidden
 })
 
 /* Functional Component for the Header */
-export const Header = connect(mapStateToProps)(({ currentUser }) => (
+export const Header = connect(mapStateToProps)(({ currentUser, hidden }) => (
     <div className='header'>
         {/* Logo links to home page */}
         <Link className='logo-link' to='/'>
@@ -60,19 +67,16 @@ export const Header = connect(mapStateToProps)(({ currentUser }) => (
                 </Link>
             }
 
-            {/* If there's no user logged in, render a Sign Up button
-            on the menu bar; if there is a user logged in,
-            don't render anything else */}
-            {/* {
-                currentUser ? 
-                null
-                :
-                <Link className='bar-item' to='register'>
-                    SIGN UP
-                </Link>
-            } */}
-
+            {/* Shopping Cart Icon */}
+            <CartIcon />
         </div>
+
+        {/* Cart's dropdown menu should be outside the div containing all the links
+        and the cart itself
+        
+        The menu is rendered if the hidden value in the redux Store is set to false, otherwise
+        it's hidden */}
+        { hidden ? null : <CartMenu /> }
     </div>
 ));
 

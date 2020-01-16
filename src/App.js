@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 
-/* Import Route */
-import { Switch, Route } from 'react-router-dom';
+/* Import Route, Switch and Redirect Components from react-router-dom library */
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 /* Import HomePage */
 import { HomePage } from './pages/homepage/homepage.component';
@@ -101,8 +101,11 @@ class App extends React.Component {
           {/* Shop Page */}
           <Route exact={true} path='/shop' component={ShopPage} />
   
-          {/* Sign In/Sign Up Page */}
-          <Route exact={true} path='/signin' component={SignInAndSignUpPage} />
+          {/* Sign In/Sign Up Page.
+              If a User is Signed In, redirect to Home Page.
+              Otherwise, Render the Sign In/Sign Up Page.
+          */}
+          <Route exact={true} path='/signin' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
 
           {/* Registration Page */}
           {/* 
@@ -115,6 +118,12 @@ class App extends React.Component {
     );
   }
 }
+
+/* App Component will need access to currentUser prop so it can conditionally render
+the Sign In page, so I need to pass mapStateToProps to connect() */
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser
+});
 
 /* mapDispatchToProps is the second argument to connect() */
 const mapDispatchToProps = (dispatch) => ({
@@ -134,7 +143,6 @@ const mapDispatchToProps = (dispatch) => ({
   mapDispatchToProps
 
 It's possible to pass in null for mapStateToProps if the Component doesn't
-need the State props anymore at the time of calling connect(). This is the
-case here. */
+need the State props anymore at the time of calling connect() */
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

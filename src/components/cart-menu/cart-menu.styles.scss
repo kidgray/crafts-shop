@@ -22,5 +22,12 @@
     button {
         margin-top: auto;
     }
+
+    /* Style the message that appears when cart is empty */
+    .empty-cart-msg {
+        font-size: 1.05rem;
+        font-weight: bold;
+        margin: 3.125rem auto;
+    }
 }
   

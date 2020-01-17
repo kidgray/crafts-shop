@@ -15,7 +15,16 @@ export const selectCartItemCounter = createSelector([selectCartItems], (cartItem
     acc is an accumulator variable.
     
     0 is the initial accumulator value. */
-    cartItems.reduce((acc, item) => (acc + item.quantity), 0));
+    cartItems.reduce((acc, item) => (acc + item.quantity), 0)
+);
 
 /* Output Selector for the Hidden property of the CartMenu */
 export const selectCartHidden = createSelector([selectCart], (cart) => cart.hidden);
+
+/* Output Selector for the Total Price of all Items in the Cart */
+export const selectCartTotal = createSelector([selectCartItems], (cartItems) => 
+    /* Map over all items in cartItems and add their prices together,
+    storing the total in an accumulator. */
+
+    cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+);

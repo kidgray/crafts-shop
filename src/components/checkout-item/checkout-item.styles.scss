@@ -1,0 +1,35 @@
+.checkout-item {
+    width: 100%;
+    display: flex;
+    min-height: 6.25rem;
+    border-bottom: 1px solid darkgrey;
+    padding: 0.9375rem 0;
+    font-size: 1.25rem;
+    align-items: center;
+  
+    .item-image-container {
+        width: 23%;
+        padding-right: 0.9375rem;
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .item-name,
+    .item-quantity,
+    .item-price {
+        width: 23%;
+    }
+
+    .item-quantity {
+        padding-left: 1.25rem;
+    }
+
+    .remove-button {
+        padding-left: 0.75rem;
+        cursor: pointer;
+    }
+}
+  

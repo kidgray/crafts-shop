@@ -13,8 +13,8 @@ import { ShopPage } from './pages/shop/shop.component';
 /* Import Sign In/Sign Up Page */
 import { SignInAndSignUpPage } from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 
-/* Import Registration Page */
-import { Registration } from './pages/registration/registration.component';
+/* Import Checkout Page */
+import { CheckoutPage } from './pages/checkout/checkout.components';
 
 /* Import Header */
 import { Header } from './components/header/header.component';
@@ -102,7 +102,7 @@ class App extends React.Component {
           <Route exact={true} path='/' component={HomePage} />
   
           {/* Shop Page */}
-          <Route exact={true} path='/shop' component={ShopPage} />
+          <Route path='/shop' component={ShopPage} />
   
           {/* Sign In/Sign Up Page.
               If a User is Signed In, redirect to Home Page.
@@ -110,12 +110,8 @@ class App extends React.Component {
           */}
           <Route exact={true} path='/signin' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
 
-          {/* Registration Page */}
-          {/* 
-          Decided not to use this after all.
-
-          <Route exact={true} path='/register' component={Registration} /> 
-          */}
+          {/* Checkout Page */}
+          <Route exact={true} path='/checkout' component={CheckoutPage} />
         </Switch>
       </div>
     );

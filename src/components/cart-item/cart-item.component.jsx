@@ -8,7 +8,7 @@ export const CartItem = ({ item }) => (
     <div className='cart-item'>
     
         {/* The item image */}
-        <img src={item.imageUrl} alt='item-image'/>
+        <img src={item.imageUrl} alt='item'/>
 
         {/* Item's name, quantity, price, etc */}
         <div className='item-info'>

@@ -22,7 +22,7 @@ const mapStateToProps = (state) => ({
     acc is an accumulator variable.
     
     0 is the initial accumulator value. */
-    itemCounter: state.cart.cartItems.reduce((acc, item) => (acc + item.quantity), 0)
+    itemCounter: selectCartItemCounter(state)
 })
 
 /* mapDispatchToProps function that will be passed as 2nd argument to connect() */

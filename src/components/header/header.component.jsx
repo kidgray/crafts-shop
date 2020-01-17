@@ -22,6 +22,12 @@ import {ReactComponent as Logo} from '../../img/rose-logo-svg.svg';
 /* Import Connect function from react-redux library*/
 import { connect } from 'react-redux';
 
+/* Import selectCurrentUser selector */
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+
+/* Import selectCartHidden selector */
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
+
 /* mapStateToProps function takes the Root Reducer as an argument
 and returns an object whose property names will be the names of the
 properties we want to pass in to the component and the value will
@@ -32,8 +38,8 @@ const mapStateToProps = (state)=> ({
     // and assigning its value to a property called currentUser,
     // which is the same name as the corresponding property in
     // the Reducer it came from (user reducer, in this case)
-    currentUser: state.user.currentUser,
-    hidden: state.cart.hidden
+    currentUser: selectCurrentUser(state),
+    hidden: selectCartHidden(state)
 });
 
 /* Functional Component for the Header */

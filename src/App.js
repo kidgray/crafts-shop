@@ -26,6 +26,9 @@ import { auth, createUserProfileDoc } from './firebase/firebase.utils';
 update Reducer values by firing Actions */
 import { connect } from 'react-redux';
 
+/* Import selectCurrentUser selector */
+import { selectCurrentUser } from './redux/user/user.selectors';
+
 /* Import SET_CURRENT_USER Action */
 import { setCurrentUser } from './redux/user/user.actions';
 
@@ -122,7 +125,7 @@ class App extends React.Component {
 /* App Component will need access to currentUser prop so it can conditionally render
 the Sign In page, so I need to pass mapStateToProps to connect() */
 const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser
+  currentUser: selectCurrentUser(state)
 });
 
 /* mapDispatchToProps is the second argument to connect() */

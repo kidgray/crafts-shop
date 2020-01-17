@@ -8,12 +8,14 @@ const selectCart = (state) => state.cart;
 export const selectCartItems = createSelector([selectCart], (cart) => cart.cartItems);
 
 /* Output Selector for the Item Counter inside the Cart Icon */
-export const selectCartItemCounter = createSelector([selectCartItems], (cartItems) => {
+export const selectCartItemCounter = createSelector([selectCartItems], (cartItems) => 
     /* Use reduce() to add up the quantity of each item
     in the cart and return it as a single numerical value 
 
     acc is an accumulator variable.
     
     0 is the initial accumulator value. */
-    cartItems.reduce((acc, item) => (acc + item.quantity), 0);
-});
+    cartItems.reduce((acc, item) => (acc + item.quantity), 0));
+
+/* Output Selector for the Hidden property of the CartMenu */
+export const selectCartHidden = createSelector([selectCart], (cart) => cart.hidden);

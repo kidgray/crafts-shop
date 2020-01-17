@@ -24,7 +24,16 @@
     }
 
     .item-quantity {
-        padding-left: 1.25rem;
+        //padding-left: 1.25rem;
+        display: flex;
+
+        .quantity-modifier {
+            cursor: pointer;
+        }
+
+        .amount {
+            margin: 0 0.625rem;
+        }
     }
 
     .remove-button {

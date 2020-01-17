@@ -16,7 +16,30 @@ export const toggleCartHidden = () => ({
     type: CartActionTypes.TOGGLE_CART_HIDDEN
 });
 
+/* ADD_TO_CART Action 
+
+payload is the item that will be added to the cart 
+*/
 export const addToCart = (item) => ({
     type: CartActionTypes.ADD_TO_CART,
     payload: item
 });
+
+/* REMOVE_FROM_CART Action 
+
+Payload is the item that will be removed from the cart
+*/
+export const removeFromCart = (item) => ({
+    type: CartActionTypes.REMOVE_FROM_CART,
+    payload: item
+})
+
+/* DECREMENT_ITEM Action
+
+This action decrements the quantity of a Cart Item by 1.
+If the item's quantity is 1, it will be removed from the Cart instead.
+*/
+export const decrementItem = (item) => ({
+    type: CartActionTypes.DECREMENT_ITEM,
+    payload: item
+})

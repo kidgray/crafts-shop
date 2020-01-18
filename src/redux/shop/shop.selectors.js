@@ -15,3 +15,15 @@ export const selectCategory = (categoryID) => createSelector(
     [selectShopItems], 
     (categories) => categories[categoryID]
 );
+
+/* Shop Output selector that converts the Shop Data object into an 
+array for use in the preview reel 
+
+Uses Object.keys() to obtain an array containing all the keys in an object,
+then maps over that array, which ultimately returns an array containing all
+the objects inside the categories object.
+
+*/
+export const selectItemsForPreview = createSelector(
+    [selectShopItems], 
+    (categories) => Object.keys(categories).map(key => categories[key]));

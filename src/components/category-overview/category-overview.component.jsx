@@ -9,11 +9,13 @@ import { connect } from 'react-redux';
 /* Import PreviewReel Component */
 import { PreviewReel } from '../preview-reel/preview-reel.component';
 
-/* Import selectShopItems selector */
-import { selectShopItems } from '../../redux/shop/shop.selectors';
+/* Import selectItemsForPreview selectors */
+import { selectItemsForPreview } from '../../redux/shop/shop.selectors';
+
+
 
 const mapStateToProps = (state) => ({
-    categories: selectShopItems(state)
+    categories: selectItemsForPreview(state)
 })
 
 /* Functional Component for the CategoryOverview */

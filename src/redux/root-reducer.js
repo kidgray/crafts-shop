@@ -13,6 +13,12 @@ import { userReducer } from './user/user.reducer';
 /* Import Cart Reducer */
 import { cartReducer } from './cart/cart.reducer';
 
+/* Import Directory Reducer */
+import { directoryReducer } from './directory/directory.reducer';
+
+/* Import Shop Reducer */
+import { shopReducer } from './shop/shop.reducer';
+
 /* JSON object that represents the possible configurations that
 redux-persist should use */
 const persistConfig = {
@@ -29,7 +35,9 @@ const persistConfig = {
 function along with persistConfig */
 const rootReducerBase = combineReducers({
     user: userReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    shop: shopReducer,
+    directory: directoryReducer
 });
 
 

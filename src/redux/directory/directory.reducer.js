@@ -1,3 +1,4 @@
+/* Initial State of the Directory Reducer */
 const INITIAL_STATE = {
     categories: [
         /* Each category has a name (title),
@@ -36,4 +37,12 @@ const INITIAL_STATE = {
             linkUrl: ''
         }
     ]
+}
+
+/* The Directory Reducer Function */
+export const directoryReducer = (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
 }

@@ -16,12 +16,24 @@ const mapStateToProps = (state, ownProps) => ({
     /* Note that the selectCategory selector was defined as a curried function
     that takes a categoryID from a Route path URL and returns the
     createSelector() function, which actually selects the proper category object */
-    collection: selectCategory(ownProps.match.params.categoryID)(state)
-})
+    category: selectCategory(ownProps.match.params.categoryID)(state)
+});
 
 /* Functional Component for the CategoryPage */
-export const CategoryPage = connect(mapStateToProps)(({ match, category }) => (
-    <div className='category-page'>
-        <h2>CATEGORY PAGE</h2>
-    </div>
-));
+export const CategoryPage = connect(mapStateToProps)(({ category }) => {
+    return (
+        <div className='category-page'>
+            {/* Header displays name of the Category */}
+            <h1 className='title'>{ category.category }</h1>
+
+            {/* The actual shop items that belong to this category */}
+            <div className='items'>
+                {
+                    category.items.map(item => <CategoryItem key={item.id} item={item} />)
+                }
+            </div>
+
+
+        </div>
+    );
+});

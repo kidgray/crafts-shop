@@ -1,8 +1,8 @@
 /* This array contains the merchandise that will be displayed on the shop page. */
 
-export const ShopData = [
+export const ShopData = {
     /* Dolls */
-    {
+    dolls: {
         id: 1,
         category: 'Dolls',
         route: "dolls",
@@ -35,7 +35,7 @@ export const ShopData = [
         ]
     },
     /* Handbags */
-    {
+    handbags: {
         id: 2,
         category: 'Handbags',
         route: 'handbags',
@@ -68,7 +68,7 @@ export const ShopData = [
         ]
     },
     /* Scrunchies & Headbands */
-    {
+    scrunchies: {
         id: 3,
         category: 'Scrunchies & Headbands',
         route: 'scrunchies',
@@ -101,7 +101,7 @@ export const ShopData = [
         ]
     },
     /* Bracelets */
-    {
+    bracelets: {
         id: 4,
         category: 'Bracelets',
         route: 'bracelets',
@@ -134,7 +134,7 @@ export const ShopData = [
         ]
     },
     /* Bath & Toiletry */
-    {
+    bath: {
         id: 5,
         category: 'Bath & Toiletry',
         route: 'bath',
@@ -166,4 +166,4 @@ export const ShopData = [
             }
         ]
     }
-]
+}

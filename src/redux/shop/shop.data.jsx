@@ -71,7 +71,7 @@ export const ShopData = [
     {
         id: 3,
         category: 'Scrunchies & Headbands',
-        route: 'scrunchies+headbands',
+        route: 'scrunchies',
         /* List of scrunchies/headbands for sale */
         items: [
             {
@@ -137,7 +137,7 @@ export const ShopData = [
     {
         id: 5,
         category: 'Bath & Toiletry',
-        route: 'bath+toiletry',
+        route: 'bath',
         /* List of bath/toiletry items for sale */
         items: [
             {

@@ -3,17 +3,17 @@
     flex-direction: column;
   
     .title {
-        font-size: 38px;
-        margin: 0 auto 30px;
+        font-size: 2.375rem;
+        margin: 0 auto 1.875rem;
     }
   
     .items {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 10px;
+        grid-gap: 0.625rem;
         
-        &.collection-item {
-            margin-bottom: 30px;
+        &.category-item {
+            margin-bottom: 1.875rem;
         }
     }
 }

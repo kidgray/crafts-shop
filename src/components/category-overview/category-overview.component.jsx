@@ -13,7 +13,6 @@ import { PreviewReel } from '../preview-reel/preview-reel.component';
 import { selectItemsForPreview } from '../../redux/shop/shop.selectors';
 
 
-
 const mapStateToProps = (state) => ({
     categories: selectItemsForPreview(state)
 })

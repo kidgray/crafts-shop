@@ -28,5 +28,13 @@
         margin-left: auto;
         font-size: 2.25rem;
     }
+
+    /* --- FOR TESTING/DEVELOPMENT PURPOSES ONLY. REMOVE WHEN SITE GOES LIVE! --- */
+    .WARNING {
+        font-size: 2.5rem;
+        font-weight: bolder;
+        color: red;
+        margin: 2rem 0;
+    }
 }
   

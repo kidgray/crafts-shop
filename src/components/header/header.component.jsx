@@ -45,12 +45,18 @@ const mapStateToProps = (state)=> ({
 /* Functional Component for the Header */
 export const Header = connect(mapStateToProps)(({ currentUser, hidden }) => (
     <div className='header'>
+
         {/* Logo links to home page */}
         <Link className='logo-link' to='/'>
             {/* Logo is an SVG, which is small and most importantly,
             looks the same no matter how much the image is shrunk or enlarged */}
             <Logo className='logo' />
         </Link>
+
+        {/* STORE'S NAME */}
+        {/* <div>
+            <h1 className='shop-name'>TITLE</h1>
+        </div> */}
 
         {/* Links to other pages */}
         <div className='link-bar'>

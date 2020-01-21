@@ -13,8 +13,8 @@ import { CartIcon } from '../cart-icon/cart-icon.component';
 /* Import Cart Menu Component */
 import { CartMenu } from '../cart-menu/cart-menu.component';
 
-/* Import SASS Style Sheet */
-import './header.styles.scss';
+/* Import Styled Components for the Header */
+import { HeaderDiv, LogoDiv, LinkBarDiv, BarItemLink, BarItemDiv } from './header.styles';
 
 /*This is React's special syntax for importing SVG logos as Components */
 import {ReactComponent as Logo} from '../../img/rose-logo-svg.svg';
@@ -44,14 +44,14 @@ const mapStateToProps = (state)=> ({
 
 /* Functional Component for the Header */
 export const Header = connect(mapStateToProps)(({ currentUser, hidden }) => (
-    <div className='header'>
+    <HeaderDiv>
 
         {/* Logo links to home page */}
-        <Link className='logo-link' to='/'>
+        <LogoDiv to='/'>
             {/* Logo is an SVG, which is small and most importantly,
             looks the same no matter how much the image is shrunk or enlarged */}
             <Logo className='logo' />
-        </Link>
+        </LogoDiv>
 
         {/* STORE'S NAME */}
         {/* <div>
@@ -59,29 +59,29 @@ export const Header = connect(mapStateToProps)(({ currentUser, hidden }) => (
         </div> */}
 
         {/* Links to other pages */}
-        <div className='link-bar'>
-            <Link className='bar-item' to='/shop'>
+        <LinkBarDiv>
+            <BarItemLink to='/shop'>
                 SHOP
-            </Link>
-            <Link className='bar-item' to=''>
+            </BarItemLink>
+            <BarItemLink to=''>
                 CONTACT
-            </Link>
+            </BarItemLink>
 
             {/* If there's no user logged in, render a Login button
             on the menu bar; if there is a user logged in,
             render a logout button */}
             {
                 currentUser ? 
-                <div className='bar-item' onClick={() => auth.signOut()}>LOG OUT</div>
+                <BarItemDiv onClick={() => auth.signOut()}>LOG OUT</BarItemDiv>
                 :
-                <Link className='bar-item' to='/signin'>
+                <BarItemLink to='/signin'>
                     LOG IN
-                </Link>
+                </BarItemLink>
             }
 
             {/* Shopping Cart Icon */}
             <CartIcon />
-        </div>
+        </LinkBarDiv>
 
         {/* Cart's dropdown menu should be outside the div containing all the links
         and the cart itself
@@ -89,7 +89,7 @@ export const Header = connect(mapStateToProps)(({ currentUser, hidden }) => (
         The menu is rendered if the hidden value in the redux Store is set to false, otherwise
         it's hidden */}
         { hidden ? null : <CartMenu /> }
-    </div>
+    </HeaderDiv>
 ));
 
 // export const ReduxHeader = connect(mapStateToProps)(Header);

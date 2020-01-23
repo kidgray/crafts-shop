@@ -1,8 +1,5 @@
 import React from 'react';
 
-/* Import SASS Style Sheet */
-import './form-button.styles.scss';
-
 /* Import styled FormButtonDiv Component */
 import { FormButtonDiv } from './form-button.styles';
 

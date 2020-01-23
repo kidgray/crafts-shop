@@ -1,9 +1,5 @@
 import React from 'react';
 
-/* Logo will link to the Home Page when it's clicked,
-so I need this component */
-import { Link } from 'react-router-dom';
-
 /* Import Auth library from Firebase Utilities */
 import { auth } from '../../firebase/firebase.utils';
 
@@ -14,7 +10,7 @@ import { CartIcon } from '../cart-icon/cart-icon.component';
 import { CartMenu } from '../cart-menu/cart-menu.component';
 
 /* Import Styled Components for the Header */
-import { HeaderDiv, LogoDiv, LinkBarDiv, BarItemLink, BarItemDiv } from './header.styles';
+import { HeaderDiv, LogoDiv, LinkBarDiv, BarItemLink } from './header.styles';
 
 /*This is React's special syntax for importing SVG logos as Components */
 import {ReactComponent as Logo} from '../../img/rose-logo-svg.svg';
@@ -72,7 +68,7 @@ export const Header = connect(mapStateToProps)(({ currentUser, hidden }) => (
             render a logout button */}
             {
                 currentUser ? 
-                <BarItemDiv onClick={() => auth.signOut()}>LOG OUT</BarItemDiv>
+                <BarItemLink as='div' onClick={() => auth.signOut()}>LOG OUT</BarItemLink>
                 :
                 <BarItemLink to='/signin'>
                     LOG IN

@@ -1,16 +1,8 @@
 /* Import styled keyword from styled-components library */
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 /* Import Link Component from react-router-dom library */
 import { Link } from 'react-router-dom';
-
-/* Styles for the Link items inside the link bar.
-For use inside the LinkBarDiv Component.  */
-const BarItemStyles = css`
-    font-size: 1.3rem;
-    padding: .65rem 1rem;
-    cursor: pointer;
-`;
 
 /* Header Div */
 export const HeaderDiv = styled.div`
@@ -39,11 +31,9 @@ export const LinkBarDiv = styled.div`
 
 /* For bar-item elements that use the Link component */
 export const BarItemLink = styled(Link)`
-    ${BarItemStyles}
+    font-size: 1.3rem;
+    padding: .65rem 1rem;
+    cursor: pointer;
 `;
 
 
-/* For bar-item elements that use the div element */
-export const BarItemDiv = styled.div`
-    ${BarItemStyles}
-`;

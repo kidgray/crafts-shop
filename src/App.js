@@ -19,7 +19,7 @@ import { CheckoutPage } from './pages/checkout/checkout.components';
 /* Import Header */
 import { Header } from './components/header/header.component';
 
-/* Import Authentication Utility from Firebase utilities */
+/* Import Firebase utilities */
 import { auth, createUserProfileDoc } from './firebase/firebase.utils';
 
 /* Import connect from react-redux library. This is so that the App can

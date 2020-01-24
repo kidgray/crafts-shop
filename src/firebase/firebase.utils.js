@@ -85,6 +85,30 @@ export const createUserProfileDoc = async(userAuth, data) => {
     return userRef;
 }
 
+/* Function that allows Data Items to be exported to Firestore */
+export const addCollectionAndDocuments = async (collectionName, docsToAdd) => {
+
+    /* Create collectionRef object that will be used to create the collection */
+    const collectionRef = firestore.collection(collectionName);
+
+    /* Loop over the array of docs to be added and add them
+    to Firestore in a batch request */
+    const batch = firestore.batch();
+
+    /* Loop over the array of shop items to be added to the database */
+    docsToAdd.forEach(doc => {
+        /* Create a new document Reference object for the current document */
+        const newDocRef = collectionRef.doc();
+
+        // Add the current document in docsToAdd to the batch of docs
+        // that will be created on the Firestore database
+        batch.set(newDocRef, doc);
+    });
+
+    // Fire the Batch request
+    return await batch.commit();
+};
+
 /* Initialize Firebase */
 firebase.initializeApp(firebaseConfig);
 

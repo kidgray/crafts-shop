@@ -8,7 +8,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { HomePage } from './pages/homepage/homepage.component';
 
 /* Import ShopPage */
-import { ShopPage } from './pages/shop/shop.component';
+import ShopPage from './pages/shop/shop.component';
 
 /* Import Sign In/Sign Up Page */
 import { SignInAndSignUpPage } from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';

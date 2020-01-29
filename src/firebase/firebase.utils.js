@@ -109,6 +109,44 @@ export const addCollectionAndDocuments = async (collectionName, docsToAdd) => {
     return await batch.commit();
 };
 
+/* Function that gets and modifies the whole snapshot of a collection
+on a document by document basis */
+export const convertCollectionSnapshotToMap = (collections) => {
+
+    // Create the modified object that contains the category name,
+    // items array, route name, and id of each category in the collection
+    const editedCollection = collections.docs.map((doc) => {
+        // Destructure the category name and items array
+        // from the current document
+        const { category, items } = doc.data();
+
+        // Return a new object that contains the category name,
+        // items array, and any other data the snapshot object
+        // will need for the front end
+        return {
+            category: category,
+            items: items,
+            routeName: encodeURI(category.toLowerCase()),
+            id: doc.id
+        };
+    });
+
+    // Get and return the object map that will be stored inside
+    // the shop reducer. This will iterate over every
+    // category inside the editedCollection object.
+    return editedCollection.reduce((acc, category) => {
+
+        // For each category item inside the collections snapshot,
+        // map the category's name (converted to lowercase) to the
+        // category object (& therefore its data) itself 
+        acc[category.category.toLowerCase()] = category;
+
+        // Return the accumulator so that the next iteration of reduce()
+        // will be able to use it
+        return acc;
+    }, {});
+};
+
 /* Initialize Firebase */
 firebase.initializeApp(firebaseConfig);
 

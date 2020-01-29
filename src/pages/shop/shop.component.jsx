@@ -64,4 +64,4 @@ class ShopPage extends React.Component {
     }
 }
 
-export connect(null, mapDispatchToProps)(ShopPage) ;
+export default connect(null, mapDispatchToProps)(ShopPage);

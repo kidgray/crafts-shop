@@ -21,9 +21,10 @@ array for use in the preview reel
 
 Uses Object.keys() to obtain an array containing all the keys in an object,
 then maps over that array, which ultimately returns an array containing all
-the objects inside the categories object.
+the objects inside the categories object, or null if categories is null 
+(which is the new initial state of categories as of Firebase integration)
 
 */
 export const selectItemsForPreview = createSelector(
     [selectShopItems], 
-    (categories) => Object.keys(categories).map(key => categories[key]));
+    (categories) => categories ? Object.keys(categories).map(key => categories[key]) : []);

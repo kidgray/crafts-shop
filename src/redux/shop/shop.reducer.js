@@ -1,12 +1,9 @@
-/* Import Shop Data */
-import { ShopData } from './shop.data';
-
 /* Import Shop Action Types */
 import { ShopActionTypes } from './shop.types';
 
 /* Initial State of the Shop Reducer */
 const INITIAL_STATE = {
-    categories: ShopData
+    categories: null
 }
 
 /* The Shop Reducer Function */

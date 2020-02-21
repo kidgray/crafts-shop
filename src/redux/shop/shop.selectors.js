@@ -13,7 +13,7 @@ This is a callback function that will take a categoryID and use it
 in the call to createSelector() to create the appropriate category selector */
 export const selectCategory = (categoryID) => createSelector(
     [selectShopItems], 
-    (categories) => categories[categoryID]
+    (categories) => categories ? categories[categoryID] : null
 );
 
 /* Shop Output selector that converts the Shop Data object into an 

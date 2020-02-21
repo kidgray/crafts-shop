@@ -13,9 +13,6 @@ export const FormButton = ({ children, invertedColors, isThirdPartySignIn, ...pr
     If the button is a Third-Party Sign-In button (Google, Facebook, etc)
     also appends a class with custom styling for those buttons. 
     */
-    // <FormButtonDiv {...props}>
-    //     {children}
-    // </FormButtonDiv>
 
     <button className={`${invertedColors ? 'inverted-colors' : ''} 
     ${isThirdPartySignIn ? 'third-party-sign-in' : ''} form-button`} {...props}>
